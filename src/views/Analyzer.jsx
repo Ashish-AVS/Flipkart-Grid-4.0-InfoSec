@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export default function Analyzer({userName}) {
   const [show, setShow] = React.useState(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({orgs:0});
   
   useEffect(() => {
     const func = (userName) => {
@@ -120,7 +120,6 @@ export default function Analyzer({userName}) {
 }
     const orgCount = async (userName) => {
       let orgs=0;
-      
         const uri = `https://api.github.com/users/${userName}`
         axios.get(uri, {headers:{
           'Authorization': process.env.REACT_APP_GITHUB_TOKEN
@@ -140,9 +139,9 @@ export default function Analyzer({userName}) {
         let obj; 
         userData(userName).then(res => obj = res)
         let obj2; repoData(userName).then(res => obj2 = res)
-        let orgs; orgCount(userName).then(res => obj = res)
+        // let orgs; orgCount(userName).then(res => obj = res)
           // forks_count
-        return {obj2, obj, orgs};
+        return {obj2, obj};
       }
       
       return requiredData(userName)

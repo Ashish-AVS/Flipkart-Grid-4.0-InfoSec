@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./views/Login";
 import Analyzer from "./views/Analyzer";
+import Quarantine from "./views/Quarantine";
 import Hero from "./views/Hero";
 import CriticalValues from "./views/CriticalValues";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -27,6 +28,7 @@ function App() {
               <Route path="/repo-analyser" element={<RepositoryAnalyzer />} />
               <Route path="/user-analyser" element={<UserDashboard />} />
               <Route path="/critical-values" element={<CriticalValues />} />
+              <Route path="/quarantine" element={<Quarantine />} />
             </Routes>
           </div>
         ) : (
